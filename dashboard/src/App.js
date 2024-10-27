@@ -8,7 +8,7 @@ import DoughnutChart from './components/DoughnutChart';
 import BarChart from './components/BarChart';
 import LineChart from './components/LineChart';
 import PolarAreaChart from './components/PolarAreaChart';
-import EVTable from './components/EVTable';
+import EVTable from './components/EVTable/EVTable';
 
 
 function App() {
@@ -87,36 +87,54 @@ function App() {
   return (
     <div className="App" ref={appMountRef}>
       <h1>Electric Vehicle Dashboard</h1>
+      <div className='top-charts mb-90'>
+        <div>
+          <DoughnutChart data={evTypeData.data} options={{
+            backgroundColor: BACKGROUND_COLOR_LIST,
+            borderRadius: '10',
+            color: '#fff'
+          }} />
+          <h4>Count of BEV Vs PHEV</h4>
+        </div>
 
-      <DoughnutChart data={evTypeData.data} options={{
-        backgroundColor: BACKGROUND_COLOR_LIST,
-        borderRadius: '10',
-        color: '#fff'
-      }} />
+        <div>
+          <PolarAreaChart data={eligibilityData.data} options={{
+              backgroundColor: BACKGROUND_COLOR_LIST,
+              borderRadius: '10',
+              color: '#fff'
+            }} />
+          <h4>Clean Alternative Fuel Vehicle (CAFV) Eligibility</h4>
+        </div>
 
-      <BarChart data={modelData.data} options={{
-        indexAxis: 'y',
-        backgroundColor: BACKGROUND_COLOR_LIST,
-        borderRadius: '5',
-        color: '#fff'
+      </div>
+      
+      <div className='mid-charts mb-90'>
+       
+          <LineChart data={electricBaseMSRP.data} options={{color: '#fff'}} />
+          
 
-      }} />
+          <BarChart data={modelData.data} options={{
+            indexAxis: 'y',
+            backgroundColor: BACKGROUND_COLOR_LIST,
+            borderRadius: '5',
+            color: '#fff'
 
-      <LineChart data={electricBaseMSRP.data} options={{color: '#fff'}} />
+          }} />
+        
+      </div>
 
-      <PolarAreaChart data={eligibilityData.data} options={{
-          backgroundColor: BACKGROUND_COLOR_LIST,
-          borderRadius: '10',
-          color: '#fff'
-        }} />
+      <div className='bottom-charts mb-90'>
+        
+        <BarChart data={locationData.data} options={{
+            backgroundColor: BACKGROUND_COLOR_LIST,
+            borderRadius: '5',
+            color: '#fff'
+          }} />
+      </div>
 
-      <BarChart data={locationData.data} options={{
-          backgroundColor: BACKGROUND_COLOR_LIST,
-          borderRadius: '5',
-          color: '#fff'
-        }} />
-
-      <EVTable evDataList={csvDataList} />
+      <div className='data-table mb-90'>
+        <EVTable evDataList={csvDataList} />
+      </div>
 
     </div>
   );

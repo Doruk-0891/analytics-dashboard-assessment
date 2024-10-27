@@ -30,7 +30,7 @@ export const getDataBasedOnModel = (csvDataList) => {
     labels: Object.keys(modelObj),
     datasets: [{
       axis: 'y',
-      label: 'Model',
+      label: 'Growth of EV based on Model',
       data: Object.values(modelObj)
     }]
   };
@@ -97,7 +97,7 @@ export const getEVBasedOnLocation = (csvDataList) => {
     labels: Object.keys(locationObject),
     datasets: [
       {
-        label: 'County',
+        label: 'Growth of EV based on County',
         data: Object.values(locationObject)
       }
     ]

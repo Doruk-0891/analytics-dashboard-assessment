@@ -1,4 +1,5 @@
 import React from 'react';
+import './style.css';
 import { v4 as uuidv4 } from 'uuid';
 import { ImCross } from "react-icons/im";
 import { GoDash } from "react-icons/go";
@@ -13,11 +14,11 @@ const EVTable = (props) => {
     const getEligibilityIcon = (eligibilityValue) => {
         switch(eligibilityValue) {
             case 'Clean Alternative Fuel Vehicle Eligible':
-                return <FaCheck color='rgb(50,205,50)' />;
+                return <FaCheck color='var(--success)' />;
             case 'Eligibility unknown as battery range has not been researched':
-                return <GoDash color='rgb(133, 118, 255)' size={30} />;
+                return <GoDash color='var(--main1-color)' size={30} />;
             case 'Not eligible due to low battery range':
-                return <ImCross color='rgb(255, 51, 51)' />;
+                return <ImCross color='var(--danger)' />;
             default:
                 return '';
         }
@@ -28,14 +29,14 @@ const EVTable = (props) => {
             case 'Battery Electric Vehicle (BEV)':
                 return (
                     <p>
-                        <FaCarBattery color='rgb(123, 201, 255)' />
+                        <FaCarBattery color='var(--secondary-blue)' />
                         <p>BEV</p>
                     </p>
             );
             case 'Plug-in Hybrid Electric Vehicle (PHEV)':
                 return (
                     <p>
-                        <FaPlugCircleBolt color='rgb(54, 162, 235)' />
+                        <FaPlugCircleBolt color='var(--primary-blue)' />
                         <p>PHEV</p>
                     </p>
             )

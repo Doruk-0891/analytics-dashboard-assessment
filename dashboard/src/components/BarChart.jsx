@@ -5,7 +5,7 @@ const BarChart = (props) => {
     const {data, options} = props;
     if (Object.keys(data).length <= 0) return <></>;
   return (
-    <div>
+    <div style={{height: '100%'}}>
         <Bar data={data} options={options} />
     </div>
   )
